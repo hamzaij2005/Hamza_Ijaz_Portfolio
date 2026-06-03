@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamza Ijaz — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #161616;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0ede8;
+  --muted: #888580;
+  --accent: #00d4a0;
+  --accent2: #0099ff;
+  --accent3: #ff6b35;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Syne', sans-serif;
+  --body: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  height: 64px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo span { color: var(--muted); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+/* ── SECTIONS ── */
+section { padding: 100px 4rem; max-width: 1100px; margin: 0 auto; }
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-name .line2 {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(240,237,232,0.3);
+}
+
+.hero-title {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-title .typed {
+  color: var(--accent2);
+  border-right: 2px solid var(--accent2);
+  animation: blink 1s step-end infinite;
+  padding-right: 3px;
+}
+
+@keyframes blink { 50% { border-color: transparent; } }
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stat-num {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.hero-grid-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#home > * { position: relative; z-index: 1; }
+
+/* ── SECTION HEADER ── */
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.sec-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.sec-title {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.sec-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 200px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+.about-text p strong { color: var(--text); font-weight: 500; }
+
+.about-text a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.about-text a:hover { text-decoration: underline; }
+
+.about-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.about-card-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.about-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.about-info-row:last-child { border-bottom: none; }
+
+.about-info-label { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.about-info-val { color: var(--text); font-size: 13px; }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.skill-group:hover { border-color: var(--border2); }
+
+.skill-group-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-group-title::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border2);
+  color: var(--muted);
+  background: var(--bg3);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.proj-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.proj-card.featured { border-color: rgba(0,212,160,0.3); }
+
+.proj-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.proj-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.proj-icon.green { background: rgba(0,212,160,0.1); }
+.proj-icon.blue { background: rgba(0,153,255,0.1); }
+.proj-icon.orange { background: rgba(255,107,53,0.1); }
+.proj-icon.purple { background: rgba(138,99,210,0.1); }
+.proj-icon.teal { background: rgba(29,158,117,0.1); }
+
+.proj-links { display: flex; gap: 8px; }
+
+.proj-link {
+  font-size: 16px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.proj-link:hover { color: var(--accent); }
+
+.proj-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.proj-badge.hackathon { background: rgba(255,107,53,0.15); color: var(--accent3); border: 1px solid rgba(255,107,53,0.3); }
+.proj-badge.featured { background: rgba(0,212,160,0.1); color: var(--accent); border: 1px solid rgba(0,212,160,0.3); }
+.proj-badge.active { background: rgba(0,153,255,0.1); color: var(--accent2); border: 1px solid rgba(0,153,255,0.3); }
+
+.proj-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.proj-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.proj-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.proj-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.proj-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--bg3);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.proj-lang {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lang-dot.cpp { background: #f34b7d; }
+.lang-dot.python { background: #3572A5; }
+.lang-dot.html { background: #e34c26; }
+
+/* ── EXPERIENCE ── */
+.timeline { position: relative; padding-left: 2rem; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(0,212,160,0.2);
+}
+
+.tl-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.tl-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.tl-org {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.tl-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+
+.tl-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--bg3);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+/* ── CERTIFICATIONS ── */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.cert-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.cert-icon {
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: rgba(0,212,160,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cert-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+
+.cert-issuer {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ── GITHUB STATS ── */
+.github-section {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.gh-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gh-stat {
+  text-align: center;
+}
+
+.gh-stat-num {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.gh-stat-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+}
+
+.gh-langs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gh-lang-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gh-lang-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.gh-lang-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.gh-lang-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1s ease;
+}
+
+.gh-lang-pct {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.gh-contributions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.gh-contrib-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.gh-contrib-boxes {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.gh-box {
+  width: 10px; height: 10px;
+  border-radius: 2px;
+}
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-text h3 {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.contact-text p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg2);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+.contact-link-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.form-input, .form-textarea {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-textarea { min-height: 100px; resize: vertical; }
+
+.form-submit {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+
+.form-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-copy span { color: var(--accent); }
+
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.fade-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-up:nth-child(5) { animation-delay: 0.5s; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section, #home { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .hero-name { font-size: 48px; letter-spacing: -2px; }
+  .hero-stats { gap: 2rem; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .gh-stats-grid { grid-template-columns: repeat(2,1fr); }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+}
+
+/* ── TOOLTIP ── */
+.tooltip-wrap { position: relative; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="hero-grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">hamza<span>.</span>ijaz<span>()</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">home</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#certifications">certs</a></li>
+    <li><a href="#stats">github</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+  <a href="mailto:u2024207@giki.edu.pk" class="nav-cta">hire me →</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <p class="hero-eyebrow fade-up">available for collaboration</p>
+  <h1 class="hero-name fade-up">
+    Hamza<br>
+    <span class="line2">Ijaz.</span>
+  </h1>
+  <p class="hero-title fade-up">
+    &gt; <span class="typed" id="typed-text">Software Engineer</span>
+  </p>
+  <p class="hero-desc fade-up">
+  Software Engineering student at GIKI focused on building real-world software systems — from C++ and DSA fundamentals to full-stack web applications and cloud-deployed projects using modern backend and database technologies.
+  Python, C++, JavaScript, HTML, CSS, SQL (PostgreSQL) with basic React, Node.js and experience in Flask, MongoDB, Docker, Git/GitHub, and Jira.
+  </p>
+
+  <div class="hero-btns fade-up">
+    <a href="#projects" class="btn-primary">view my work</a>
+    <a href="https://github.com/hamzaij2005" target="_blank" class="btn-ghost">github ↗</a>
+    <a href="https://www.linkedin.com/in/hamza-ijaz-685601328" target="_blank" class="btn-ghost">linkedin ↗</a>
+  </div>
+  <div class="hero-stats fade-up">
+    
+    <div>
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">SEMESTERS</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">1</div>
+      <div class="hero-stat-label">HACKATHON</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">6+</div>
+      <div class="hero-stat-label">LANGUAGES</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header">
+    <span class="sec-num">01.</span>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        Hi! I'm <strong>Hamza Ijaz</strong>, a sophomore studying <strong>BS Computer Software Engineering</strong>
+        at the <strong>Ghulam Ishaq Khan Institute (GIKI)</strong>, batch of 2028.
+      </p>
+      <p>
+        I'm passionate about building things that matter — whether that's a
+        <strong>voice-first banking system</strong> for unbanked communities, a
+        <strong>hospital management system</strong> powered by DSA, or a
+        <strong>production-grade analytics dashboard</strong> backed by PostgreSQL.
+      </p>
+      <p>
+        My journey started with C++ fundamentals in Semester 1 and has rapidly expanded
+        into Python, Flask, Docker, AWS, and full-stack web development. I love the
+        intersection of <strong>systems thinking</strong> and <strong>real-world impact</strong>.
+      </p>
+      <p>
+        Currently: Front-End Developer (HTML, CSS, learning JavaScript) · Proficient in
+        C++ &amp; Python · DSA practitioner. Looking to collaborate on
+        <strong>ML/AI research</strong> and software projects.
+      </p>
+      <p>
+        📧 <a href="mailto:u2024207@giki.edu.pk">u2024207@giki.edu.pk</a>
+        &nbsp;·&nbsp;
+        🔗 <a href="https://www.linkedin.com/in/hamza-ijaz-685601328" target="_blank">LinkedIn</a>
+        &nbsp;·&nbsp;
+        🐙 <a href="https://github.com/hamzaij2005" target="_blank">GitHub</a>
+      </p>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-card-title">Profile</div>
+        <div class="about-info-row">
+          <span class="about-info-label">Name</span>
+          <span class="about-info-val">Hamza Ijaz</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">University</span>
+          <span class="about-info-val">GIKI (Batch 28)</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">Degree</span>
+          <span class="about-info-val">BS Computer Software Eng.</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">Year</span>
+          <span class="about-info-val">Sophomore (2nd Year)</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">location</span>
+          <span class="about-info-val">Pakistan</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">focus</span>
+          <span class="about-info-val">Systems · Web · AI/ML</span>
+        </div>
+        <div class="about-info-row">
+          <span class="about-info-label">status</span>
+          <span class="about-info-val" style="color:var(--accent);">● open to collaborate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-header">
+    <span class="sec-num">02.</span>
+    <h2 class="sec-title">Skills</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">LANGUAGES</div>
+      <div class="skill-tags">
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">FRAMEWORKS & LIBRARIES</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">React (Basic)</span>
+        <span class="skill-tag">Streamlit</span>
+        <span class="skill-tag">Plotly</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">STL (C++)</span>
+        <span class="skill-tag">psycopg2</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">DATA STRUCTURES & ALGORITHMS</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Linked Lists</span>
+        <span class="skill-tag">Stacks & Queues</span>
+        <span class="skill-tag">Trees</span>
+        <span class="skill-tag">Graphs</span>
+        <span class="skill-tag">Hashing</span>
+        <span class="skill-tag">Sorting</span>
+        <span class="skill-tag">Searching</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">DATABASES</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">SQLite</span>
+        <span class="skill-tag">SQL Queries</span>
+        <span class="skill-tag">ERD Design</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">DEVOPS & CLOUD</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </div>
+    <!-- SOFTWARE ENGINEERING -->
+    <div class="skill-group">
+        <div class="skill-group-title">SOFTWARE ENGINEERING</div>
+        <div class="skill-tags">
+        <span class="skill-tag">SRS Documentation</span>
+        <span class="skill-tag">UML Diagrams</span>
+        <span class="skill-tag">Agile Basics</span>
+        <span class="skill-tag">Software Design Patterns</span>
+        </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">AI / NLP</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Whisper (OpenAI)</span>
+        <span class="skill-tag">gTTS</span>
+        <span class="skill-tag">Twilio</span>
+        <span class="skill-tag">Speech-to-Text</span>
+        <span class="skill-tag">NLP Pipelines</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">TOOLS</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">draw.io</span>
+        <span class="skill-tag">Postman</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">CONCEPTS</div>
+      <div class="skill-tags">
+        <span class="skill-tag">OOP</span>
+        <span class="skill-tag">Modular Design</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">File Handling</span>
+        <span class="skill-tag">RBAC</span>
+        <span class="skill-tag">Microservices</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header">
+    <span class="sec-num">03.</span>
+    <h2 class="sec-title">Projects</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <!-- VoicePay -->
+    <a class="proj-card featured" href="https://github.com/hamzaij2005/Voice_pay" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon orange">🎙️</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+          <span class="proj-badge hackathon">hackathon</span>
+        </div>
+      </div>
+      <div class="proj-title">VoicePay</div>
+      <p class="proj-desc">
+        Voice-first financial system enabling users to send money, check balance, and
+        perform banking via phone call — no smartphone or literacy required.
+        Built with Whisper NLP + Twilio + Flask. Designed for unbanked communities
+        in developing regions.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Flask</span>
+          <span class="proj-tag">Twilio</span>
+          <span class="proj-tag">NLP</span>
+          <span class="proj-tag">FinTech</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot python"></span>Python</div>
+      </div>
+    </a>
+
+    <!-- SalesSphere -->
+    <a class="proj-card" href="https://github.com/hamzaij2005/Salessphere_Intelligence_DBMS" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon blue">📊</div>
+        <span class="proj-badge featured">pinned</span>
+      </div>
+      <div class="proj-title">SalesSphere Intelligence DBMS</div>
+      <p class="proj-desc">
+        Full-stack sales analytics dashboard with role-based auth, PostgreSQL backend
+        and Plotly visualizations. Covers revenue trends, customer analytics, product
+        intelligence, payment insights, and a live SQL explorer with chart support.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">Plotly</span>
+          <span class="proj-tag">RBAC</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot python"></span>Python</div>
+      </div>
+    </a>
+    <!-- SE Collaboration Skill Card -->
+<a class="proj-card" href="#" target="_blank">
+  <div class="proj-header">
+    <div class="proj-icon green">🤝</div>
+    <span class="proj-badge featured">SE Practice</span>
+  </div>
+
+  <div class="proj-title">Agile Software Engineering Workflow</div>
+
+  <p class="proj-desc">
+    Practiced real-world software engineering workflow using Agile methodology.
+    Managed tasks, sprint planning, and issue tracking through Jira in a multi-member
+    team environment. Followed structured development cycles including requirement
+    analysis, task assignment, and iterative delivery with Git-based collaboration.
+  </p>
+
+  <div class="proj-footer">
+    <div class="proj-tags">
+      <span class="proj-tag">Jira</span>
+      <span class="proj-tag">Agile</span>
+      <span class="proj-tag">Team Collaboration</span>
+      <span class="proj-tag">Git & GitHub</span>
+      <span class="proj-tag">Sprint Planning</span>
+    </div>
+
+    <div class="proj-lang">
+      <span class="lang-dot green"></span>Workflow
+    </div>
+  </div>
+</a>
+    <!-- Crisis Platform -->
+    <a class="proj-card" href="https://github.com/hamzaij2005/-suicide-hotline-app" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon purple">🛡️</div>
+        <span class="proj-badge featured">devops</span>
+      </div>
+      <div class="proj-title">Crisis Support Platform</div>
+      <p class="proj-desc">
+        Production-grade peer support and crisis intervention platform built with
+        Flask, Docker, AWS, and CI/CD pipelines. Demonstrates real-world DevOps
+        maturity — containerization, cloud deployment, and automated workflows.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">Flask</span>
+          <span class="proj-tag">Docker</span>
+          <span class="proj-tag">AWS</span>
+          <span class="proj-tag">SQLite</span>
+          <span class="proj-tag">CI/CD</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot html"></span>HTML</div>
+      </div>
+    </a>
+
+    <!-- Health Nexus -->
+    <a class="proj-card" href="https://github.com/hamzaij2005/Health-Nexus-" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon teal">🏥</div>
+      </div>
+      <div class="proj-title">Health Nexus</div>
+      <p class="proj-desc">
+        DSA-based hospital management system with 6 integrated modules: Patient
+        records, Bed/Ward allocation, Appointments, Pharmacy inventory, Billing, and
+        hospital graph navigator. Implements linked lists, queues, hashing &amp; file I/O.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">C++</span>
+          <span class="proj-tag">DSA</span>
+          <span class="proj-tag">STL</span>
+          <span class="proj-tag">File I/O</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot cpp"></span>C++</div>
+      </div>
+    </a>
+
+    <!-- Semester 1 Projects -->
+    <a class="proj-card" href="https://github.com/hamzaij2005/Semester_1_projects" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon green">✈️</div>
+      </div>
+      <div class="proj-title">Integrated Airline Operating System,
+        Cafe Management System</div>
+      <p class="proj-desc">
+        First-semester C++ coursework: Integrated Airline Operating System,
+        Cafe Management System, plus mini-games (Rock Paper Scissors, Hangman,
+        Mastermind) and math/array utilities.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">C++</span>
+          <span class="proj-tag">Airline System</span>
+          <span class="proj-tag">Games</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot cpp"></span>C++</div>
+      </div>
+    </a>
+
+    <!-- Semester 2 -->
+    <a class="proj-card" href="https://github.com/hamzaij2005/Semester_2_project" target="_blank">
+      <div class="proj-header">
+        <div class="proj-icon orange">🚧</div>
+        <span class="proj-badge active">active</span>
+      </div>
+      <div class="proj-title"> Study Group Scheduler System</div>
+      <p class="proj-desc">
+        Current second-semester capstone. Builds on
+        advanced OOP concepts and data structures from the second semester curriculum
+        at GIKI.
+      </p>
+      <div class="proj-footer">
+        <div class="proj-tags">
+          <span class="proj-tag">C++</span>
+          <span class="proj-tag">OOP</span>
+          <span class="proj-tag">Active</span>
+        </div>
+        <div class="proj-lang"><span class="lang-dot cpp"></span>C++</div>
+      </div>
+    </a>
+
+  </div>
+  <div style="text-align:center;margin-top:2rem;">
+    <a href="https://github.com/hamzaij2005?tab=repositories" target="_blank" class="btn-ghost" style="display:inline-block;">
+      view all 11 repositories ↗
+    </a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-header">
+    <span class="sec-num">04.</span>
+    <h2 class="sec-title">Experience</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">2024 — PRESENT</div>
+      <div class="tl-title">Sophomore — BS Computer Software Engineering</div>
+      <div class="tl-org">Ghulam Ishaq Khan Institute (GIKI) · Topi, Pakistan</div>
+      <p class="tl-desc">
+        Pursuing a full bachelor's degree in Computer Software Engineering at one of
+        Pakistan's top engineering universities. Completed Semester 1 with a strong
+        foundation in C++ (loops, arrays, functions, OOP), progressing through Semester 2
+        with advanced DSA, databases, and web fundamentals.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">C++</span>
+        <span class="tl-tag">DSA</span>
+        <span class="tl-tag">OOP</span>
+        <span class="tl-tag">Databases</span>
+        <span class="tl-tag">Web Dev</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2025</div>
+      <div class="tl-title">C++ Intern / Task Contributor</div>
+      <div class="tl-org">CodeAlpha · Remote</div>
+      <p class="tl-desc">
+        Completed applied C++ programming tasks as part of the CodeAlpha internship
+        program. Demonstrated problem-solving skills under real program constraints
+        and deadlines.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">C++</span>
+        <span class="tl-tag">Problem Solving</span>
+        <span class="tl-tag">Internship</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2025 — HACKATHON</div>
+      <div class="tl-title">Hackathon Participant — VoicePay</div>
+      <div class="tl-org">Team Project · Pakistan</div>
+      <p class="tl-desc">
+        Built VoicePay — a voice-first financial accessibility system — during a hackathon.
+        Designed and implemented a microservice-style architecture with Twilio voice calls,
+        Whisper speech-to-text, PIN-based authentication, and Flask financial backend.
+        Targeted the unbanked population in developing regions.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">Flask</span>
+        <span class="tl-tag">Twilio</span>
+        <span class="tl-tag">NLP</span>
+        <span class="tl-tag">FinTech</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2024</div>
+      <div class="tl-title">Semester 1 — GIKI</div>
+      <div class="tl-org">Ghulam Ishaq Khan Institute · First Semester</div>
+      <p class="tl-desc">
+        Mastered C++ fundamentals: I/O, loops, conditionals, arrays, functions, OOP,
+        ASCII, and operators. Built the Integrated Airline Operating System and Cafe
+        Management System as coursework projects.
+      </p>
+      <div class="tl-tags">
+        <span class="tl-tag">C++ Basics</span>
+        <span class="tl-tag">Airline System</span>
+        <span class="tl-tag">Cafe System</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<!-- ================= CERTIFICATIONS SECTION ================= -->
+<section id="certifications">
+
+  <div class="sec-header">
+    <span class="sec-num">05.</span>
+    <h2 class="sec-title">Certifications</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon">🧠</div>
+      <div>
+        <div class="cert-name">Introduction to Software Engineering</div>
+        <div class="cert-issuer">IBM · Aug 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🐳</div>
+      <div>
+        <div class="cert-name">Docker & Containerization</div>
+        <div class="cert-issuer">Crisis Support Platform Project · 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">☁️</div>
+      <div>
+        <div class="cert-name">AWS Cloud Deployment</div>
+        <div class="cert-issuer">CI/CD Pipeline Project · 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🔢</div>
+      <div>
+        <div class="cert-name">Data Structures & Algorithms</div>
+        <div class="cert-issuer">GIKI · Semester 2 · 2026</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🗄️</div>
+      <div>
+        <div class="cert-name">Database Management Systems</div>
+        <div class="cert-issuer">PostgreSQL · GIKI Coursework · 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🎨</div>
+      <div>
+        <div class="cert-name">Responsive Website Basics (HTML/CSS/JS)</div>
+        <div class="cert-issuer">University of London · Jul 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <div>
+        <div class="cert-name">Crash Course on Python</div>
+        <div class="cert-issuer">Google · Aug 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Statistics & Visualization in Python</div>
+        <div class="cert-issuer">MindLuster · Aug 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">💻</div>
+      <div>
+        <div class="cert-name">Object-Oriented Programming in C++</div>
+        <div class="cert-issuer">University of London · Jul 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🧩</div>
+      <div>
+        <div class="cert-name">Critical Thinking Skills</div>
+        <div class="cert-issuer">UC Davis · Jun 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">📽️</div>
+      <div>
+        <div class="cert-name">Microsoft PowerPoint Productivity</div>
+        <div class="cert-issuer">Microsoft · Jul 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- GITHUB STATS -->
+<section id="stats">
+  <div class="sec-header">
+    <span class="sec-num">06.</span>
+    <h2 class="sec-title">GitHub Stats</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="github-section">
+    <div class="gh-stats-grid">
+      <div class="gh-stat">
+        <div class="gh-stat-num">12</div>
+        <div class="gh-stat-label">PUBLIC REPOS</div>
+      </div>
+      <div class="gh-stat">
+        <div class="gh-stat-num">1000+</div>
+        <div class="gh-stat-label">TOTAL COMMITS</div>
+      </div>
+     
+      <div class="gh-stat">
+        <div class="gh-stat-num">6</div>
+        <div class="gh-stat-label">LANGUAGES</div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid var(--border);padding-top:1.5rem;margin-bottom:0.5rem;">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:1rem;">
+        TOP 3 LANGUAGES in percentage of codebase
+      </div>
+      <div class="gh-langs">
+        <div class="gh-lang-row">
+          <span class="gh-lang-name">C++</span>
+          <div class="gh-lang-bar">
+            <div class="gh-lang-fill" style="width:72%;background:#f34b7d;"></div>
+          </div>
+          <span class="gh-lang-pct">53%</span>
+        </div>
+        <div class="gh-lang-row">
+          <span class="gh-lang-name">Python</span>
+          <div class="gh-lang-bar">
+            <div class="gh-lang-fill" style="width:22%;background:#3572A5;"></div>
+          </div>
+          <span class="gh-lang-pct">36%</span>
+        </div>
+        <div class="gh-lang-row">
+          <span class="gh-lang-name">HTML/CSS/JS</span>
+          <div class="gh-lang-bar">
+            <div class="gh-lang-fill" style="width:6%;background:#e34c26;"></div>
+          </div>
+          <span class="gh-lang-pct">11%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gh-contributions">
+      <span class="gh-contrib-label" style="white-space:nowrap;">contribution activity</span>
+      <div class="gh-contrib-boxes" id="contrib-boxes"></div>
+    </div>
+
+    <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="https://github.com/hamzaij2005" target="_blank" class="btn-ghost" style="font-size:12px;padding:8px 18px;">
+        view github profile ↗
+      </a>
+      <a href="https://github.com/hamzaij2005?tab=repositories" target="_blank" class="btn-ghost" style="font-size:12px;padding:8px 18px;">
+        all repositories ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-header">
+    <span class="sec-num">07.</span>
+    <h2 class="sec-title">Contact</h2>
+    <div class="sec-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <h3>Let's build<br>something together.</h3>
+      <p>
+        I'm always open to collaborating on interesting projects,
+        ML/AI research, open-source work, or just geeking out about
+        C++ performance or system design.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:u2024207@giki.edu.pk" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          u2024207@giki.edu.pk
+        </a>
+        <a href="https://www.linkedin.com/in/hamza-ijaz-685601328" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          linkedin.com/in/hamza-ijaz-685601328
+        </a>
+        <a href="https://github.com/hamzaij2005" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🐙</span>
+          github.com/hamzaij2005
+        </a>
+        <a href="https://github.com/hamzaij2005/Hamza_Ijaz_Portfolio" target="_blank" class="contact-link">
+          <span class="contact-link-icon">🌐</span>
+          Portfolio Repository
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label">name</label>
+        <input type="text" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">email</label>
+        <input type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">message</label>
+        <textarea class="form-textarea" placeholder="What would you like to collaborate on?"></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSend(this)">send message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">
+     <span>Hamza Ijaz</span> · GIKI '28
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/hamzaij2005" target="_blank">github</a>
+    <a href="https://www.linkedin.com/in/hamza-ijaz-685601328" target="_blank">linkedin</a>
+    <a href="mailto:u2024207@giki.edu.pk">email</a>
+  </div>
+</footer>
+
+<script>
+const roles = [
+  'Software Engineer',
+  'Full-Stack Builder',
+  'DSA Practitioner',
+  'FinTech Innovator',
+  'GIKI Sophomore'
+];
+let roleIdx = 0, charIdx = 0, deleting = false;
+const el = document.getElementById('typed-text');
+
+function typeLoop() {
+  const current = roles[roleIdx];
+  if (!deleting) {
+    el.textContent = current.slice(0, charIdx + 1);
+    charIdx++;
+    if (charIdx === current.length) {
+      setTimeout(() => { deleting = true; typeLoop(); }, 2000);
+      return;
+    }
+  } else {
+    el.textContent = current.slice(0, charIdx - 1);
+    charIdx--;
+    if (charIdx === 0) {
+      deleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+    }
+  }
+  setTimeout(typeLoop, deleting ? 40 : 80);
+}
+typeLoop();
+
+
+const boxes = document.getElementById('contrib-boxes');
+const levels = [0,0,1,0,2,1,0,3,2,1,0,2,3,2,1,0,0,1,2,0,1,2,3,4,3,2,1,0,1,2,3,2,1,2,3,4,3,2,1,2,3,2,1,0,1,2,3,2,1,0,1,2,1,0,0,1,2,3,4,3,2,1,2,3,4,3,2,1,0,1,2,3,2,1,0,1,2,1,0,0];
+const colors = ['#1a1a1a','rgba(0,212,160,0.2)','rgba(0,212,160,0.45)','rgba(0,212,160,0.7)','rgba(0,212,160,1)'];
+levels.forEach(l => {
+  const b = document.createElement('div');
+  b.className = 'gh-box';
+  b.style.background = colors[l];
+  boxes.appendChild(b);
+});
+
+// Contact form
+function handleSend(btn) {
+  btn.textContent = 'message sent ✓';
+  btn.style.background = 'rgba(0,212,160,0.2)';
+  btn.style.color = 'var(--accent)';
+  btn.style.border = '1px solid var(--accent)';
+  setTimeout(() => {
+    btn.textContent = 'send message →';
+    btn.style.background = 'var(--accent)';
+    btn.style.color = 'var(--bg)';
+    btn.style.border = 'none';
+  }, 3000);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.proj-card, .skill-group, .tl-item, .cert-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
